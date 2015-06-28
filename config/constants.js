@@ -1,11 +1,15 @@
 var Constants = {
 	agenciesURI: 'http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList',
+	routeListURI: 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=',
 	Events: {
 		agenciesXMLFetched: 'agenciesXMLFetched',
-		agenciesXML2JSONConverted: 'agenciesXML2JSONConverted',
 		agenicesStored: 'agenciesStored',
 		agenicesXMLParseError: 'agenciesXMLParseError',
-		agenciesXMLtoJSONConverted: 'agenciesXMLtoJSONConverted'
+		agenciesXMLtoJSONConverted: 'agenciesXMLtoJSONConverted',
+		agenciesCreateOrUpdateError: 'agenciesCreateOrUpdateError',
+		agencyCreated: 'agencyCreated',
+		routeListFetched: 'routeListFetched',
+		RouteListXMLParseError: 'routeListXMLParseError'
 	}
 }
 

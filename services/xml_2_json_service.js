@@ -11,13 +11,13 @@ var XML2JSON = {
 
 	activateAgencyXMLFetched: function(){
 		var self = this;
-
+		Logger.info(['xml_2_json.js'], 'XML to JSON service activated!');
 		serviceBus.listen(constants.Events.agenciesXMLFetched, {
 				durable: true,
 				ack: true,
 				persistent: true},
 			function(payload){
-				Logger.info(['xml_2_json.js'], 'Payload arrived: ' + payload);
+				Logger.info(['xml_2_json.js'], 'Agency Payload arrived. ');
 				if (payload.type == constants.Events.agenciesXMLFetched) {
 					self.convert2JSON(payload.data, self.agencyXMLConversionDone);
 					payload.handle.ack();
@@ -28,7 +28,7 @@ var XML2JSON = {
 
 	agencyXMLConversionDone: function(agenciesJSON){
 		Logger.info(['xml_2_json.js'], 'Agencies XML to JSON parse success!');
-		Logger.debug(['xml_2_json.js'], agenciesJSON);
+
 		serviceBus.send(constants.Events.agenciesXMLtoJSONConverted, {
 			event: constants.Events.agenciesXMLtoJSONConverted,
 			timestamp: Date.now(),

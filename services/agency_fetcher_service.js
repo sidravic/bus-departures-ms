@@ -17,13 +17,13 @@ var AgencyFetcherService = {
 			if(err)
 				cb(err, null);
 			else {
-				cb(null, payload);
 				serviceBus.send(constants.Events.agenciesXMLFetched, {
 					eventName: constants.Events.agenciesXMLFetched,
 					timestamp: Date.now(),
 					data: payload})
 				Logger.info(["agency_fetcher_service"], constants.Events.agenciesXMLFetched + " triggered");
-				agencyFetcherEmitter.emit(constants.Events.agenciesXMLFetched, payload);
+				cb(null, payload);
+				//agencyFetcherEmitter.emit(constants.Events.agenciesXMLFetched, payload);
 			}
 		});
 	}
