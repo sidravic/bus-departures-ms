@@ -40,7 +40,7 @@ var AgencyUpdaterService = {
             serviceBus.send(constants.Events.agenciesCreateOrUpdateError, err);
         else {
             serviceBus.send(constants.Events.agencyCreated,
-                {event: constantsEvents.agencyCreated,
+                {event: constants.Events.agencyCreated,
                  timestamp: Date.now(),
                  data: agency
                 });

@@ -92,7 +92,7 @@ server.start(function(){
 			stopFetcher.init();
 			routeListXML2JSON.init();
 			routeFetcher.init();
-			agencyUpdater.insit();
+			agencyUpdater.init();
 			xml2json.init();
 			Agency.count({}, function(err, _count){
 				if (_count == 0)
