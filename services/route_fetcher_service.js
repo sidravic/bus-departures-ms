@@ -29,13 +29,14 @@ var RouteFetcherService = {
 
         Wreck.get(routeListURI, {}, function(err, response, payload){
             if(err)
-                Logger.error(['route_fetcher_service.js'], 'Error in fetching RouteList for ' + agency.tag);
+                Logger.error(['route_fetcher_service.js'], 'Error in fetching RouteList for ' + agency.data.tag);
             else {
                 Logger.info(['route_fetcher_service.js'], 'RouteList XML Fetched');
                 serviceBus.send(constants.Events.routeListFetched, {
                     event: constants.Events.routeListFetched,
                     timestamp: Date.now(),
-                    data: payload
+                    data: payload,
+                    agencyTag: agency.data.tag
                 });
             }
         })

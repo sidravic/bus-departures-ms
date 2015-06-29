@@ -1,0 +1,98 @@
+body {
+    font-family: Helvetica;
+    font-size: 10pt;
+    width: 600px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+
+}
+
+pre {
+    /*background-color: #eee;*/
+    border-left: 2px solid #aaa;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.chart {
+    width: 500px;
+    height: 100px;
+    font-family: Helvetica;
+    font-size: 10pt;
+    font-weight: normal;
+    margin-top: -6px;
+}
+
+#datum {
+    float: left;
+    clear: both;
+}
+
+#datum p {
+    font-weight: normal;
+    font-size: 10pt;
+}
+
+a {
+    color: #000;
+}
+
+.connect {
+    background-color: #eee;
+}
+
+h3 {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#title {
+    font-weight: bold;
+}
+
+#subtitle {
+    color: #555;
+}
+
+h4 {
+    padding-top: 20px;
+}
+
+#viewport {
+    width: auto;
+    min-width: 658px;
+    min-height: 900px;
+
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    -moz-backface-visibility: visible;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 14%;
+    margin-top: 0px;
+    padding-top: 0px;
+
+    border-left: 1px solid #aaa;
+    background-color: #fff;
+
+    display: block;
+    clear: both;
+    position: absolute;
+}
+
+.footer{
+    bottom:10px;
+    position:absolute;
+}
+
+.stop-elem{
+    background-color: #eee;
+    padding: 5px;
+}
+
+.predictions{
+    margin-left: 20px;
+}

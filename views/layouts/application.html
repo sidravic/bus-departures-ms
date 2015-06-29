@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title> Bus Departures | <%= title %></title>
+    <link href="static/css/application.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+<%- content %>
+
+<div class="footer" style='width:720px; margin:auto;position:absolute'>
+    <small>
+        <!--<a href="/stats">Site</a> powered by Hapi.js, Node.js, Rabbitmq and Redis.-->
+    </small>
+    <br/>
+    <small>
+
+    </small>
+</div>
+
+<script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+<script src="/static/javascripts/geolocation.js"></script>
+<script src="/static/javascripts/websockets.js"></script>
+<script type="application/javascript">
+
+    (function($, window, document, BD){
+
+        // On Document ready
+        $(function(){
+            if(navigator.geolocation) {
+                BD.Message.update('Initializing system.');
+                BD.SocketConnections.initialize()
+            }
+        })
+
+    })(jQuery, this, this.document, _BD);
+</script>
+</body>
+</html>
