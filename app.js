@@ -81,7 +81,7 @@ server.start(function(){
 			routeListXML2JSON.init();
 			routeFetcher.init();
 			agencyUpdater.init();
-
+			xml2json.init();
 			Agency.count({}, function(err, _count){
 				if (_count == 0)
 					agencyFetcher.fetch();
@@ -99,4 +99,5 @@ server.start(function(){
 			})
 		}
 	})
+
 })
