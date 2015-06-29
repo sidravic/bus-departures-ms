@@ -1,5 +1,5 @@
 var Hapi 		 = require('hapi')
-var server 		 = new Hapi.Server();
+
 var Logger 		 = require('./config/logger.js');
 var util 		 = require('util')
 var Routes 		 = require('./config')
@@ -7,7 +7,19 @@ var childProcess = require('child_process');
 var Path 		 = require('path');
 var SocketServer = require('./websocket_server.js');
 
-server.connection({port: 8009});
+if (typeof(PhusionPassenger) != 'undefined') {
+	PhusionPassenger.configure({ autoInstall: false });
+}
+
+if (typeof(PhusionPassenger) != 'undefined') {
+	// Requires Phusion Passenger >= 4.0.52!
+	server = new Hapi.Server();
+	server.connection({port: '/passenger'})
+}else{
+	var server  = new Hapi.Server();
+	server.connection({port: 8009});
+}
+
 
 server.ext('onRequest', function(request, reply, next){
 	Logger.info(["info"], util.inspect(request.url) + " " + request.params + " " + util.inspect(request.payload));
@@ -80,7 +92,7 @@ server.start(function(){
 			stopFetcher.init();
 			routeListXML2JSON.init();
 			routeFetcher.init();
-			agencyUpdater.init();
+			agencyUpdater.insit();
 			xml2json.init();
 			Agency.count({}, function(err, _count){
 				if (_count == 0)
